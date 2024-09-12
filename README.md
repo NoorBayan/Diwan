@@ -101,7 +101,7 @@ The dataset is categorized by poetic genre, meter, style, theme, and other featu
 
 To explore the full details of the Diwan dataset and interact with its extensive features, access our interactive Google Colab notebook. This notebook provides an easy-to-use interface for searching, analyzing, and learning more about the Diwan dataset.
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/your-notebook-link)
+[![Open in Colab](https://colab.research.google.com/drive/1c2AsPfdwj4ELEypTEmsSTewtVQ8MVXP3?usp=drive_link)
 
 ---
 
