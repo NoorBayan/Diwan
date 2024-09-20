@@ -103,6 +103,16 @@ To explore the full details of the Diwan dataset and interact with its extensive
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c2AsPfdwj4ELEypTEmsSTewtVQ8MVXP3?usp=drive_link)
 
+ <p align="center">
+   <img src = "https://raw.githubusercontent.com/NoorBayan/Diwan/main/images/DiwanColab.png" width = "800px"/>
+ </p>
+
+### Steps to Use Diwan on Google Colab:
+
+1. **Run the first cell** by clicking the "Run" button to load the necessary files and libraries.
+2. **Execute the notebook**, and dropdown menus will appear with various poetry categories. You can experiment by selecting different options, and the corresponding poetic data will be displayed based on your choices.
+3. You can explore **additional features** of the Diwan dataset by accessing the main menu on the left side of the notebook interface.
+
 ---
 
 ## Future Updates
