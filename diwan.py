@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from bidi.algorithm import get_display
 import arabic_reshaper
-poems=pd.read_csv('Diwan.csv',sep='\t',encoding='utf-16')
+poems=pd.read_csv('corpus/Diwan.csv',sep='\t',encoding='utf-16')
 def arab(text):
     return get_display(arabic_reshaper.reshape(text))
 
