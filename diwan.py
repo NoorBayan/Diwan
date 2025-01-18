@@ -4,15 +4,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from bidi.algorithm import get_display
 import arabic_reshaper
-poems=pd.read_csv('corpus/Diwan.csv',sep='\t',encoding='utf-16')
+poems=pd.read_csv('Diwan.csv',sep='\t',encoding='utf-16')
 def arab(text):
     return get_display(arabic_reshaper.reshape(text))
 
 
-poem_art_type_dic={'_': 0, 'قديمة': 1, 'حديثة': 2}
-poem_art_type={poem_art_type_dic[i]:i for i in poem_art_type_dic}
+poem_form_dic={'_': 0, 'قديمة': 1, 'حديثة': 2}
+poem_form={poem_form_dic[i]:i for i in poem_form_dic}
 ####
-poem_art_dic={'_': 0,
+poem_genre_dic={'_': 0,
              'قريض': 1,
              'موشح': 2,
              'دوبيت': 3,
@@ -24,10 +24,10 @@ poem_art_dic={'_': 0,
              'نثر': 9,
              'موضوعي': 10,
              'ترجمات': 11}
-poem_art={poem_art_dic[i]:i for i in poem_art_dic}
+poem_genre={poem_genre_dic[i]:i for i in poem_genre_dic}
 ####
-lang_type_dic={'_': 0, 'فصحى': 1, 'عامية': 2}
-lang_type={lang_type_dic[i]:i for i in lang_type_dic}
+language_type_dic={'_': 0, 'فصحى': 1, 'عامية': 2}
+language_type={language_type_dic[i]:i for i in language_type_dic}
 ####
 writing_style_dic={'_': 0, 'عموديه': 1, 'غير عموديه': 2}
 writing_style={writing_style_dic[i]:i for i in writing_style_dic}
@@ -40,7 +40,7 @@ meter_system_dic={'_': 0,
                  'لا يوجد': 5}
 meter_system={meter_system_dic[i]:i for i in meter_system_dic}
 ####
-supermeter_dic={'_': 0,
+main_meter_dic={'_': 0,
                  'الطويل': 1,
                  'المديد': 2,
                  'البسيط': 3,
@@ -72,7 +72,7 @@ supermeter_dic={'_': 0,
                  'الصخري': 29,
                  'تفعيلات': 30,
                  'لا يوجد': 31}
-supermeter={supermeter_dic[i]:i for i in supermeter_dic}
+main_meter={main_meter_dic[i]:i for i in main_meter_dic}
 ####
 submeter_dic={'_': 0,
              'تام': 1,
@@ -87,7 +87,7 @@ submeter_dic={'_': 0,
              'لا يوجد': 10}
 submeter={submeter_dic[i]:i for i in submeter_dic}
 ####
-topics_dic={'_': 0,
+them_dic={'_': 0,
              'متعددة': 1,
              'غزل': 2,
              'رثاء': 3,
@@ -109,54 +109,56 @@ topics_dic={'_': 0,
              'رحمة': 19,
              'سياسة': 20,
              'وطنية': 21}
-topics={topics_dic[i]:i for i in topics_dic}
+them={them_dic[i]:i for i in them_dic}
 ####
-Gender={0:'غير مصنف',
-       1:'شاعر',
-       2:'شاعرة'}
+poet_gender={0:'غير مصنف',
+               1:'شاعر',
+               2:'شاعرة'}
 ####
-location_type_dic={'_': 0, 'عربي': 1, 'أجنبي': 2}
-location_type={location_type_dic[i]:i for i in location_type_dic}
+nationality_dic={'_': 0, 'عربي': 1, 'أجنبي': 2}
+nationality={nationality_dic[i]:i for i in nationality_dic}
 ####
 rhyme_dic={'_': 0,
          'ء': 1,
-         'أ': 2,
-         'ؤ': 3,
+         'ا': 2,
+         'ال': 3,
          'إ': 4,
-         'ئ': 5,
-         'ا': 6,
-         'ب': 7,
-         'ة': 8,
-         'ت': 9,
-         'ث': 10,
-         'ج': 11,
-         'ح': 12,
-         'خ': 13,
-         'د': 14,
-         'ذ': 15,
-         'ر': 16,
-         'ز': 17,
-         'س': 18,
-         'ش': 19,
-         'ص': 20,
-         'ض': 21,
-         'ط': 22,
-         'ظ': 23,
-         'ع': 24,
-         'غ': 25,
-         'ف': 26,
-         'ق': 27,
-         'ك': 28,
-         'ل': 29,
+         'أ': 5,
+         'ب': 6,
+         'ة': 7,
+         'ت': 8,
+         'ث': 9,
+         'ج': 10,
+         'ح': 11,
+         'خ': 12,
+         'د': 13,
+         'ذ': 14,
+         'ر': 15,
+         'ز': 16,
+         'س': 17,
+         'ش': 18,
+         'ص': 19,
+         'ض': 20,
+         'ط': 21,
+         'ظ': 22,
+         'ع': 23,
+         'غ': 24,
+         'ف': 25,
+         'ق': 26,
+         'ك': 27,
+         'ل': 28,
+         'لا': 29,
          'م': 30,
          'ن': 31,
          'ه': 32,
          'و': 33,
-         'ى': 34,
-         'ي': 35}
+         'ؤ': 34,
+         'ى': 35,
+         'ي': 36,
+         'ئ': 37}
 rhyme={rhyme_dic[i]:i for i in rhyme_dic}
 ####
-poet_location_dic={'_': 0,
+poet_country_dic={'_': 0,
                  'الإمارات': 1,
                  'الأردن': 2,
                  'البحرين': 3,
@@ -272,7 +274,7 @@ poet_location_dic={'_': 0,
                  'هايتي': 113,
                  'هنغاريا': 114,
                  'هولندا': 115}
-poet_location={poet_location_dic[i]:i for i in poet_location_dic}
+poet_country={poet_country_dic[i]:i for i in poet_country_dic}
 ####
 poet_era_dic={'_': 0,
              'العصر الجاهلي': 1,
@@ -290,18 +292,18 @@ poet_era_dic={'_': 0,
 poet_era={poet_era_dic[i]:i for i in poet_era_dic}
 ####
 
-report={0: ['poem_art_type','أنواع الفنون الشعرية',poem_art_type],
-         1: ['poem_art','الفنون الشعرية',poem_art],
-         2: ['lang_type','اللغة المستخدمة',lang_type],
+report={0: ['poem_form','أنواع الفنون الشعرية',poem_form],
+         1: ['poem_genre','الفنون الشعرية',poem_genre],
+         2: ['language_type','اللغة المستخدمة',language_type],
          3: ['writing_style','نمط الكتابة',writing_style],
          4: ['meter_system','نظام العروض',meter_system],
-         5: ['supermeter','البحر الرئيسي',supermeter],
+         5: ['main_meter','البحر الرئيسي',main_meter],
          6: ['submeter','البحر الفرعي',submeter],
-         7: ['topics','موضوع القصيدة',topics],
-         8: ['Gender','جنس الشاعر',Gender],
+         7: ['them','موضوع القصيدة',them],
+         8: ['poet_gender','جنس الشاعر',poet_gender],
          9: ['poet_era','عصر الشعر',poet_era],
-         10: ['location_type','جنسية الشاعر',location_type],
-         11: ['poet_location','موطن الشاعر',poet_location],
+         10: ['nationality','جنسية الشاعر',nationality],
+         11: ['poet_country','موطن الشاعر',poet_country],
          12: ['rhyme','قوافي القصائد',rhyme],}
 
 
@@ -329,7 +331,7 @@ def get_pie_report(report,title,label):
 
 def get_bar_report(report,title,label):
     r=poems[poems[report]!=0].groupby(report).size().to_frame('size').reset_index( ).sort_values("size", ascending=[False])
-    if report in ['poem_art_type','lang_type','writing_style','location_type','Gender']:
+    if report in ['poem_form','language_type','writing_style','nationality','poet_gender']:
         aspect=.5
     else:
         aspect=3    
