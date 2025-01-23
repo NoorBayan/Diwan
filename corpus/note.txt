@@ -1,0 +1,5 @@
+Note: Due to the file size limitations imposed by GitHub, the full Arabic poetry corpus, excluding the poetic verses, has been uploaded to this repository. To ensure accessibility to the complete corpus, including the poetic verses, the dataset has been made available on Google Drive. This decision was made to preserve the integrity of the dataset while complying with platform restrictions. 
+You can access the complete Arabic poetry corpus through the following:
+https://drive.google.com/file/d/1qrV821M0XDkunWJ-ZtcH19oiIRrTOmug/view?usp=sharing
+Additionally, the dataset is referenced with the DOI:
+https://doi.org/10.5281/zenodo.14648391
