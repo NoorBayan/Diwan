@@ -349,3 +349,198 @@ def get_bar_report(report,title,label):
                 rotation='horizontal', 
                 size='large')
     return fig
+
+style1="""<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            width: 1200px;
+            /* عرض الحاوية */
+            margin: 0 auto;
+            /* توسيط الحاوية */
+        }
+
+        .ayat-container {
+          flex: 1;
+          width: 100%;
+          overflow: auto;
+          /* إمكانية التمرير إذا كان الجدول كبيرًا */
+        }
+        
+        .table-container {
+          flex: 1;
+          width: 90%;
+          overflow: auto;
+          /* إمكانية التمرير إذا كان الجدول كبيرًا */
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        th,
+        td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    """
+
+style2="""                  <style>                      
+                    .paragraph-style {
+                      direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
+                      margin-top: 0in; /* هامش أعلى */
+                      margin-right: 0.2in; /* هامش يمين */
+                      margin-bottom: 0.05in; /* هامش أسفل */
+                      margin-left: 0in; /* هامش يسار */
+                      text-align: justify; /* محاذاة النص */
+                      line-height: normal; /* ارتفاع السطر */
+                      color: black; /* Font color */
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                    }
+                
+                      
+                    .paragraph-ayah-tfsir {
+                      direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
+                      margin-top: 0.5in; /* هامش أعلى */
+                      margin-right: 0in; /* هامش يمين */
+                      margin-bottom: 0.2in; /* هامش أسفل */
+                      margin-left: 0in; /* هامش يسار */
+                      text-align: center; /* توسيط النص */
+                      line-height: normal; /* ارتفاع السطر */
+                      color: blue; /* Font color */
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                      font-size: 22px; /* Font size */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                    }
+
+                    .paragraph-th {
+                      direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
+                      margin-top: 0in; /* هامش أعلى */
+                      margin-right: 0in; /* هامش يمين */
+                      margin-bottom: 0in; /* هامش أسفل */
+                      margin-left: 0in; /* هامش يسار */
+                      text-align: start; /* توسيط النص */
+                      line-height: normal; /* ارتفاع السطر */
+                      color: blue; /* Font color */
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                      font-size: 20px; /* Font size */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                    }
+
+                    .paragraph-style {
+                      direction: rtl; /* اتجاه النص من اليمين إلى اليسار */
+                      margin-top: 0in; /* هامش أعلى */
+                      margin-right: 0in; /* هامش يمين */
+                      margin-bottom: 0in; /* هامش أسفل */
+                      margin-left: 0in; /* هامش يسار */
+                      text-align: center; /* توسيط النص */
+                      line-height: normal; /* ارتفاع السطر */
+                      color: green; /* Font color */
+                      font-family: 'hafs', hafs-qc; /* Traditional Arabic font */
+                      font-size: 28px; /* Font size */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                      
+                    }
+                    
+                    .paragraph-style [font-family="hafs"] {
+                          font-family: 'hafs-qc'
+                      }
+
+                    
+                    @font-face {
+                          font-family: 'hafs-qc';
+                          src: url('https://fonts.nuqayah.com/hafs-qc.woff2');
+                    }
+                    
+                    .word-style-class {
+                      color: black; /* Font color */
+                      font-family: 'Aldhabi', 'Traditional Arabic', serif; /* Traditional Arabic font */
+                      font-size: 30px; /* Font size */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                    }
+                    
+                    .td-cell-style {
+                      width: 250px; /* عرض الخلية */
+                      border-top: none; /* إزالة الحدود العلوية */
+                      border-right: none; /* إزالة الحدود اليمنى */
+                      border-left: none; /* إزالة الحدود اليسرى */
+                      border-image: initial; /* تعيين صورة الحدود */
+                      border-bottom: 1pt solid rgb(127, 127, 127); /* حدود سفلية صلبة بلون رمادي */
+                      padding: 0in 5.4pt; /* حشو الخلية */
+                      vertical-align: middle; /* محاذاة عمودية أعلى */
+                    } 
+                    
+                    .td2-cell-style {
+                      width: 850px; /* عرض الخلية */
+                      border-bottom: 1pt solid rgb(127, 127, 127); /* حدود سفلية صلبة بلون رمادي */
+                      vertical-align: top; /* محاذاة عمودية أعلى */
+                    }
+                    
+                    h3 {
+                      color: #2222ff; /* تغيير لون الخط */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                    }
+
+                    h4 {
+                      color: #2222ff; /* تغيير لون الخط */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                      text-align: start; /* محاذاة النص في البداية */
+                      margin-bottom: 8px; /* إضافة هامش أسفل التاج */
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                    }
+                    
+                    table thead {
+                      font-family: 'Traditional Arabic', serif; /* Traditional Arabic font */
+                      font-size: 20px; /* Font size */
+                      font-weight: bold; /* جعل الخط غامقًا */
+                      border: none;
+                      color: blue; /* Font color */
+                    }
+                    
+                    table thead th {
+                      border: none; /* إخفاء جميع حدود خلايا الترويسة */
+                      border-bottom: 2px solid #ddd; /* حد سفلي رمادي فاتح بسمك 2 بكسل */
+                    }
+
+                    
+                </style>
+    </div>
+</body>
+</html>
+"""
+#                      background-color: #007bff; /* أزرق كهربائي */
+
+
+TABLE="""    <div class="table-container">
+        <table dir="rtl">
+            <tbody>
+              {table}
+            </tbody>
+          </table>
+    </div>"""
+TR="""          <tr>
+                {info}
+              </tr>"""
+TD="""         <td class="td-cell-style">
+                    {para}
+                </td>"""
+PARA="""                  <p dir="RTL" class="paragraph-style">
+                    {spans}
+                  </p>"""
+SPAN="""                <span class="word-style-class" style="color: {};">{}</span>"""
+
+POEM = """
+        <div class="main-poem">
+        {content}
+        </div>"""
