@@ -1,5 +1,11 @@
 # Diwan (ديوان): The Largest Classified Dataset of Arabic Poetry
 
+
+<div style="border:1px solid #f5c2c7; background-color:#f8d7da; padding:12px; border-radius:8px; color:#842029;">
+<strong>⚠️ Notice:</strong><br>
+Dataset files are temporarily unavailable during repository maintenance.
+</div>
+
  <p align="center"> 
  <img src = "https://raw.githubusercontent.com/NoorBayan/Diwan/main/images/DiwanLogo.png" width = "200px"/>
  </p>
